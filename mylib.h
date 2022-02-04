@@ -208,3 +208,29 @@ string to_binary(unsigned long long int n, bool flag = false) { // Convert Decim
         return to_binary(n / 2, true) + digits[n & 1];
     return (flag) ? "" : "0"; // if number is zero
 }
+
+int flipBit(int a, int b) { // flips a specified bit
+    if (b <= 0)
+        return a;
+    int bit = 1;
+    bit = bit << b-1;
+    a = a^bit;
+    return a;
+}
+
+int setBit(int a, int b) { // sets a specified bit
+    if (b <= 0)
+        return a;
+    int bit = 1;
+    bit = bit << b - 1;
+    a = a | bit;
+    return a;
+}
+
+int resetBit(int a, int b) { // resets a specified bit
+    if (b <= 0)
+        return a;
+    int num = ((pow(2, 15)*2)-1) - pow(2, b - 1);
+    a = a & num;
+    return a;
+}
